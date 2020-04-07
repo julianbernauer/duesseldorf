@@ -15,10 +15,11 @@ library(tidyverse)
 library(readxl)
 library(gridExtra)
 library(lme4)
-dir <- "M:/TEMPOP 2020/"
-pop_hawk <- read_excel(paste0(dir,"/Data/Hawkins/Populist speech data.xlsx"))
+dir <- "C:/Users/Dr. J/Dropbox/MZES_DWSG"
+#dir <- "C:/Dropbox/MZES_DWSG"
+pop_hawk <- read_excel(paste0(dir,"/Data/Populist speech data.xlsx"))
 load(paste0(dir,"/Data/pop_de.RData"))
-df_de <- readtext(paste0(dir,"/Data/manifestosDE"), encoding="UTF-8")
+df_de <- readtext(paste0(dir,"/manifestosDE"), encoding="UTF-8")
 ```
 
 *Paper Prepared for the Conference "The Language of Polarization: Methodological Challenges and Innovative Approaches in Quantitative Text Analysis", Düsseldorf, July 2-3, 2020*
@@ -381,7 +382,7 @@ The motivation of this research is the expectation that the meaning of populism 
 pophol <- pop_hawk$`average score`
 country <- pop_hawk$country
 indi <- pop_hawk$leader
-year <- pop_hawk$`year begin`
+year <- pop_hawk$`year_begin`
 hawk <- data.frame(country,indi,year,pophol)
 pophol_dens <- ggplot(hawk, aes(x=pophol)) + 
                geom_density() + 
